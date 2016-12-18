@@ -1,0 +1,16 @@
+[
+{
+  "modid": "recipeexporter",
+  "name": "Minecraft Recipe Exporter",
+  "description": "Export the crafting recipe for Minecraft with Forge environment.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/mntone/MinecraftRecipeExporter",
+  "updateUrl": "",
+  "authorList": ["mntone"],
+  "credits": "mntone",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
