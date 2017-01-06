@@ -3,10 +3,11 @@ package mntone.recipeexporter.core
 import java.{util => ju}
 
 import mntone.recipeexporter.data.{RecipeData, ShapeRecipeData, ShapelessRecipeData, UnsupportedRecipeData}
+import mntone.recipeexporter.util.MinecraftUtil._
 import mntone.recipeexporter.util.ScalaUtil
 import net.minecraft.item.ItemStack
 import net.minecraft.item.crafting.{CraftingManager, ShapedRecipes, ShapelessRecipes}
-import net.minecraftforge.oredict.{OreDictionary, ShapedOreRecipe, ShapelessOreRecipe}
+import net.minecraftforge.oredict.{ShapedOreRecipe, ShapelessOreRecipe}
 
 import scala.collection.convert.wrapAsScala._
 
@@ -72,15 +73,4 @@ object RecipeExtractor {
             case _ => UnsupportedRecipeData()
         }.toArray
     }
-
-    private def getItemStackNameWithOre(obj: Object): String =
-        obj match {
-            case oreItem: ju.ArrayList[ItemStack] =>
-                val oreId = OreDictionary.getOreIDs(oreItem(0))(0)
-                OreDictionary.getOreName(oreId)
-            case item: ItemStack => getItemStackName(item)
-        }
-
-    private def getItemStackName(itemStack: ItemStack): String =
-        itemStack.getItem.delegate.name
 }

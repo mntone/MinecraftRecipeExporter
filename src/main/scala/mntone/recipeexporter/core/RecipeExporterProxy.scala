@@ -2,6 +2,7 @@ package mntone.recipeexporter.core
 
 import java.time.LocalDateTime
 
+import cpw.mods.fml.common.registry.GameData
 import mntone.recipeexporter.data.ExportDataRoot
 import mntone.recipeexporter.util.{GsonUtil, IOUtil}
 import net.minecraft.client.Minecraft
@@ -14,6 +15,8 @@ class ClientRecipeExporterProxy {
         println("[RecipeExporter] function 'loadComplete' is called.")
         val minecraft = Minecraft.getMinecraft
         val export = ExportDataRoot(
+            BlockExtractor.getBlocks(GameData.getBlockRegistry),
+            ItemExtractor.getItems(GameData.getItemRegistry),
             TextureExtractor.getTextures(minecraft),
             RecipeExtractor.getCraftingRecipes(CraftingManager.getInstance))
         val json = GsonUtil.gson.toJson(export)

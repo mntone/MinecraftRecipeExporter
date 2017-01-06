@@ -27,7 +27,7 @@ object TextureExtractor {
                                 val data = MinecraftUtil.getImageData(loc)
                                 val texData = TextureData(domain2, basePath, name2, data)
                                 name match {
-                                    case n if n == "minecraft" => Some((s"minecraft:$name", texData))
+                                    case _ if domain == "minecraft" => Some((s"minecraft:$name", texData))
                                     case _ => Some(name, texData)
                                 }
                         }
