@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.crafting.{CraftingManager, ShapedRecipes, ShapelessRecipes}
 import net.minecraftforge.oredict.{OreDictionary, ShapedOreRecipe, ShapelessOreRecipe}
 
-import scala.collection.convert.wrapAsScala._;
+import scala.collection.convert.wrapAsScala._
 
 object RecipeExtractor {
     def getCraftingRecipes(crafting: CraftingManager): Array[RecipeData] = {
